@@ -6,6 +6,8 @@ import { opcionesBaseDatos } from './base-datos/opciones.js';
 import { NegocioModule } from './negocio/negocio.module.js';
 import { SaludController } from './salud.controller.js';
 import { UsuariosModule } from './usuarios/usuarios.module.js';
+import { PedidosModule } from './pedidos/pedidos.module.js';
+
 @Module({
 imports: [
 TypeOrmModule.forRoot(opcionesBaseDatos),
@@ -13,6 +15,7 @@ TypeOrmModule.forRoot(opcionesBaseDatos),
 ThrottlerModule.forRoot([{ ttl: 60_000, limit: 120 }]),
 NegocioModule,
 UsuariosModule,
+PedidosModule,
 ],
 controllers: [SaludController],
 providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
